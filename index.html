@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+         height: 100vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+        }
+        h1{
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+       .form{
+        background-color: aliceblue;
+        width: 500px;
+        padding: 20px;
+        border-radius: 20px;
+       }
+       form label{
+        font-size: 20px;
+        color: rgb(114, 113, 113);
+       }
+       form input{
+        
+        width: 96%;
+        padding:8px;
+        display: inline;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+       }
+       .btn{
+        display: inline;
+        padding: 12px 0px;
+        width :100%;
+        margin-top: 5px;
+        border-style: none;
+        background-color: rgb(3, 147, 147);
+        border-radius: 5px;
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+       }
+       .items{
+        /* width: 100%; */
+        padding: 0px;
+       }
+       .items li{
+        width: 500px;
+        list-style: none;
+        background-color: aliceblue;
+        margin-bottom: 10px;
+        padding: 18px;
+        border-radius: 10px;
+        font-size: 18px;
+       }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>Registration Form</h1>
+       <form action="#" class="form">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"  autocomplete="off"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" autocomplete="off"><br><br>
+        <input type="submit" class="btn" value="Submit">
+       </form>
+       <ul class="items">
+          <!-- <li class="item">item 1</li>
+          <li class="item">item 2</li>
+          <li class="item">item 3</li> -->
+       </ul>
+    </section>
+    <script>
+        const formEl=document.querySelector(".form")
+        const ul=document.querySelector(".items")
+        const btn=document.querySelector(".btn")
+        const nameEl=document.querySelector("#username")
+        const emailEl=document.querySelector("#email")
+
+        formEl.addEventListener("click",(e)=>{
+            formEl.style.backgroundColor="lightgrey"
+        })
+        nameEl.addEventListener("mouseover",(e)=>{
+            e.preventDefault()
+            nameEl.style.transform="scale(1.1)"
+        })
+        emailEl.addEventListener("mouseover",(e)=>{
+            e.preventDefault()
+            emailEl.style.transform="scale(1.1)"
+        })
+        nameEl.addEventListener("mouseout",(e)=>{
+            e.preventDefault()
+            nameEl.style.transform="scale(1)"
+        })
+        emailEl.addEventListener("mouseout",(e)=>{
+            e.preventDefault()
+            emailEl.style.transform="scale(1)"
+        })
+        formEl.addEventListener("submit", onSubmit)
+
+        function onSubmit(e){
+           e.preventDefault()
+           if(nameEl.value === '' || emailEl.value === '' ){
+            alert("Please fill all the fields")
+           }else{
+            btn.style.backgroundColor="green"
+            btn.value="Submitted"
+            console.log(nameEl.value)
+            console.log(emailEl.value)
+            
+           }
+            nameEl.value="";
+            emailEl.value="";
+           
+        }
+        console.log(btn)
+      
+    </script>
+</body>
+</html>
